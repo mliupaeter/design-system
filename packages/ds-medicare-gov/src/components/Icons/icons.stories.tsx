@@ -15,6 +15,7 @@ import {
   PiggyBankIcon,
   RoundedStarIcon,
   SwipeIcon,
+  TeletypewriterIcon,
   WheelchairIcon,
 } from './index';
 
@@ -119,6 +120,11 @@ const iconData = [
     defaultTitle: 'Swipe',
     component: <SwipeIcon />,
     name: 'SwipeIcon',
+  },
+  {
+    defaultTitle: 'Teletypewriter',
+    component: <TeletypewriterIcon />,
+    name: 'TeletypewriterIcon',
   },
   {
     defaultTitle: 'Wheelchair',
