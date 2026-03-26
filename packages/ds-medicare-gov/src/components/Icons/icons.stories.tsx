@@ -3,15 +3,16 @@ import {
   AbuseIcon,
   BirthingFriendlyIcon,
   CheckShieldIcon,
+  CostsCircleIcon,
+  CostsIcon,
+  DialysisServicesIcon,
   DoctorsCliniciansIcon,
   DrugsIcon,
   FilterIcon,
   GetStartedIcon,
   HeartIcon,
+  HospiceIcon,
   InfoCircleOutlineIcon,
-  CostsCircleIcon,
-  CostsIcon,
-  DialysisServicesIcon,
   PharmacyIcon,
   PiggyBankIcon,
   RoundedStarIcon,
@@ -73,14 +74,14 @@ const iconData = [
     name: 'DrugsIcon',
   },
   {
-    defaultTitle: 'Get Started',
-    component: <GetStartedIcon />,
-    name: 'GetStartedIcon',
-  },
-  {
     defaultTitle: 'Filters',
     component: <FilterIcon />,
     name: 'FilterIcon',
+  },
+  {
+    defaultTitle: 'Get Started',
+    component: <GetStartedIcon />,
+    name: 'GetStartedIcon',
   },
   {
     defaultTitle: '[variation] Heart',
@@ -93,6 +94,11 @@ const iconData = [
     name: 'HeartIcon',
     notes:
       'Takes a <code>variation</code> prop to determine if the heart is filled or just an outline.',
+  },
+  {
+    defaultTitle: 'Hospice',
+    component: <HospiceIcon />,
+    name: 'HospiceIcon',
   },
   {
     defaultTitle: 'Information',
