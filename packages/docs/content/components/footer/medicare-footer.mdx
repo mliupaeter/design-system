@@ -8,13 +8,18 @@ core:
   figmaNodeId: 346-13315
 medicare:
   figmaNodeId: 346-13315
-  githubLink: ds-medicare-gov/src/components/SimpleFooter
-  storybookLink: medicare-simplefooter--docs
+  githubLink: ds-medicare-gov/src/components/Footer
+  storybookLink: medicare-footer--docs
 ---
 
 ## Examples
 
-<StorybookExample componentName="footer" storyId="medicare-simplefooter--default" />
+<StorybookExample componentName="footer" storyId="medicare-footer--default" />
+
+The Medicare.gov `Footer` component contains the support navigation, email signup,
+social links, and the required legal identity row. The lower legal identity row is
+implemented by `SimpleFooter`, which can still be used by products that only need
+that portion of the Medicare.gov footer.
 
 ## Accessibility
 
@@ -43,7 +48,7 @@ through interactive elements.
 
 ### React
 
-<SeeStorybookForGuidance storyId={'medicare-simplefooter--docs'} />
+<SeeStorybookForGuidance storyId={'medicare-footer--docs'} />
 
 ## Component maturity
 

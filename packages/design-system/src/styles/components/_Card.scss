@@ -1,6 +1,99 @@
+@use '../layout' as *;
+
 .ds-c-card {
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-lighter);
   border-radius: 6px !important;
   box-shadow: var(--card__box-shadow);
+}
+
+.ds-c-card--actionable {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    background: var(--color-primary);
+    block-size: 4px;
+    content: '';
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    position: absolute;
+    transform-origin: left center;
+  }
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 14%);
+  }
+
+  &:focus-within {
+    outline: 3px solid var(--color-focus-dark);
+    outline-offset: 3px;
+  }
+
+  .ds-c-card__cta {
+    gap: $spacer-1;
+    position: relative;
+
+    &::after {
+      block-size: 0.45em;
+      border-block-start: 2px solid currentColor;
+      border-inline-end: 2px solid currentColor;
+      content: '';
+      inline-size: 0.45em;
+      margin-inline-start: $spacer-half;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover .ds-c-card__cta,
+  &:focus-within .ds-c-card__cta {
+    background: var(--button-solid__background-color--hover);
+    border-color: var(--button-solid__border-color--hover);
+    color: var(--button-solid__color--hover);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ds-c-card--actionable,
+  .ds-c-card--actionable::before,
+  .ds-c-card--actionable .ds-c-card__cta,
+  .ds-c-card--actionable .ds-c-card__cta::after {
+    transition-duration: 180ms;
+    transition-timing-function: ease-out;
+  }
+
+  .ds-c-card--actionable {
+    transition-property: border-color, box-shadow, transform;
+  }
+
+  .ds-c-card--actionable::before {
+    transform: scaleX(0.32);
+    transition-property: transform;
+  }
+
+  .ds-c-card--actionable .ds-c-card__cta {
+    transition-property: background-color, border-color, color;
+  }
+
+  .ds-c-card--actionable .ds-c-card__cta::after {
+    transition-property: transform;
+  }
+
+  .ds-c-card--actionable:hover,
+  .ds-c-card--actionable:focus-within {
+    transform: translateY(-4px);
+  }
+
+  .ds-c-card--actionable:hover::before,
+  .ds-c-card--actionable:focus-within::before {
+    transform: scaleX(1);
+  }
+
+  .ds-c-card--actionable:hover .ds-c-card__cta::after,
+  .ds-c-card--actionable:focus-within .ds-c-card__cta::after {
+    transform: translateX(3px) rotate(45deg);
+  }
 }

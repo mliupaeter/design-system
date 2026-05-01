@@ -8,6 +8,13 @@ describe('SimpleFooter', () => {
     expect(screen.getByText(/about SimpleFooter/i)).toBeInTheDocument();
   });
 
+  it('can render as a non-landmark element when composed inside a full footer', () => {
+    const { container } = render(<SimpleFooter as="div" aboutMedicareLabel="About Medicare" />);
+
+    expect(container.querySelector('.m-c-footer')?.tagName.toLowerCase()).toBe('div');
+    expect(container.querySelector('footer')).not.toBeInTheDocument();
+  });
+
   it('uses Spanish Medicare URLs when language="es"', () => {
     render(<SimpleFooter language="es" aboutMedicareLabel="About Medicare" />);
 

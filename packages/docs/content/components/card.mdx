@@ -12,7 +12,7 @@ core:
 
 <StorybookExample componentName="card" storyId="components-card--default" />
 
-## Accessibility
+<StorybookExample componentName="card" storyId="components-card--actionable" />
 
 ## Accessibility
 
@@ -21,6 +21,8 @@ The `Card` component is a presentational container intended to visually group re
 ### General accessibility guidance
 - Ensure that content within the card (such as text, buttons, or icons) meets all relevant accessibility criteria, including contrast, focus visibility, and heading hierarchy.
 - If a card is meant to be interactive (e.g., clickable to navigate), use a semantic `<a>` or `<button>`. See our [links vs. buttons guidance](https://design.cms.gov/components/button/?theme=core#links-vs-buttons).
+- Use `variation="actionable"` only when the card contains a semantic action, such as a link or button. The motion and visual cue are supplemental; the link or button must remain visible and keyboard accessible.
+- Actionable card motion respects reduced-motion preferences and should not be used to imply urgency.
 - Maintain logical heading structure inside cards (e.g., `h2`–`h3` levels) to preserve page hierarchy.
 
 ### Accessibility testing

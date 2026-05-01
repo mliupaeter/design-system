@@ -12,6 +12,11 @@ interface SimpleFooterProps {
   plainWritingLabel?: string;
   websiteInfo?: string;
   onClickLinkAnalytics?: (url: string) => void;
+  /**
+   * Renders the footer body inside a non-landmark element. Use this when
+   * SimpleFooter is composed inside the full Medicare.gov Footer component.
+   */
+  as?: 'footer' | 'div';
   /** Adds a proptype for changing language for the 'Privacy Setting' modal. See tealium documentation about 'Consent Preferences Manager', for more info. */
   language?: string;
 }
@@ -31,9 +36,13 @@ export const SimpleFooter: FunctionComponent<SimpleFooterProps> = ({
   language = 'en',
   websiteInfo = 'A federal government website managed and paid for by the U.S. Centers for Medicare and Medicaid Services.',
   onClickLinkAnalytics,
+  as = 'footer',
 }: SimpleFooterProps) => {
-  const footerRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement | null>(null);
   const baseUrl = language === 'es' ? 'https://es.medicare.gov' : 'https://www.medicare.gov';
+  const setFooterRef = (element: HTMLElement | null) => {
+    footerRef.current = element;
+  };
 
   useEffect(() => {
     if (onClickLinkAnalytics) {
@@ -43,8 +52,8 @@ export const SimpleFooter: FunctionComponent<SimpleFooterProps> = ({
     }
   }, [onClickLinkAnalytics]);
 
-  return (
-    <footer className="m-c-footer" ref={footerRef}>
+  const content = (
+    <>
       <div className="m-c-footer__linkRow">
         <a href={`${baseUrl}/about-us`}>{aboutMedicareLabel}</a>
         <span aria-hidden="true" className="m-c-footer__delimiter" />
@@ -93,6 +102,16 @@ export const SimpleFooter: FunctionComponent<SimpleFooterProps> = ({
           7500 Security Boulevard, Baltimore, MD 21244
         </span>
       </div>
+    </>
+  );
+
+  return as === 'div' ? (
+    <div className="m-c-footer" ref={setFooterRef}>
+      {content}
+    </div>
+  ) : (
+    <footer className="m-c-footer" ref={setFooterRef}>
+      {content}
     </footer>
   );
 };

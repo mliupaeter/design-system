@@ -1,0 +1,100 @@
+@use '../layout' as *;
+
+.m-c-full-footer {
+  background-color: var(--color-gray-lightest);
+  color: var(--color-base);
+}
+
+.m-c-full-footer__container {
+  margin-inline: auto;
+  max-width: var(--site-max-width);
+  padding: $spacer-4 $spacer-3;
+
+  @media screen and (min-width: $media-width-md) {
+    padding-inline: var(--site-margins);
+  }
+}
+
+.m-c-full-footer__links {
+  display: grid;
+  gap: $spacer-4;
+
+  @media screen and (min-width: $media-width-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (min-width: $media-width-lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.m-c-footer-links__title,
+.m-c-footer-email-signup h2 {
+  margin-block: 0 $spacer-2;
+}
+
+.m-c-footer-links__list,
+.m-c-footer-social__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.m-c-footer-links__list {
+  display: grid;
+  gap: $spacer-1;
+}
+
+.m-c-full-footer__actions {
+  display: grid;
+  gap: $spacer-3;
+  padding-block: $spacer-3 $spacer-4;
+
+  @media screen and (min-width: $media-width-md) {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) max-content;
+  }
+}
+
+.m-c-footer-email-signup__form {
+  display: grid;
+  gap: $spacer-1;
+  max-width: 30rem;
+}
+
+.m-c-footer-email-signup__choice {
+  align-items: flex-start;
+  display: flex;
+  gap: $spacer-1;
+  line-height: 1.35;
+}
+
+.m-c-footer-social {
+  @media screen and (min-width: $media-width-md) {
+    justify-self: end;
+    padding-block-start: $spacer-4;
+  }
+}
+
+.m-c-footer-social__list {
+  display: flex;
+  gap: $spacer-2;
+}
+
+.m-c-footer-social a {
+  align-items: center;
+  color: var(--color-primary);
+  display: inline-flex;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.m-c-footer-social__icon {
+  fill: currentColor;
+  height: $spacer-4;
+  width: $spacer-4;
+}
+
+.m-c-full-footer .m-c-footer {
+  padding: 0;
+}

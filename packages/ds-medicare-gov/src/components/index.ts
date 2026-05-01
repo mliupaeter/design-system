@@ -11,6 +11,7 @@ export * from '@cmsgov/design-system';
 export * from './MedicaregovHelpDrawer';
 export * from './MedicaregovLogo';
 export * from './MedicaregovThirdPartyExternalLink';
+export * from './Footer';
 export * from './SimpleFooter';
 export * from './Stars';
 export * from './Icons';
